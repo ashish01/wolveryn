@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="home">
+        <h1 class="logo">🔍 Search Engine</h1>
+        <p class="subtitle">Single-node full-text search with BM25 ranking &amp; Block-Max WAND</p>
+        <form action="/" method="GET" class="search-form">
+            <input type="text" name="q" placeholder="Search documents..." autofocus class="search-input">
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+        {{if .Stats}}
+        <p class="stats-home">
+            {{.Stats.TotalDocs}} documents &middot; {{.Stats.TotalSegments}} segments &middot; {{formatBytes .Stats.IndexSizeBytes}}
+        </p>
+        {{end}}
+    </div>
+</body>
+</html>

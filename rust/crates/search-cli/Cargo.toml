@@ -1,0 +1,8 @@
+[package]
+name = "search-cli"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+search-core = { path = "../core" }
+serde_json = "1"

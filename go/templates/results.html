@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Query}} - Search</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header class="results-header">
+        <a href="/" class="logo-small">🔍 Search</a>
+        <form action="/" method="GET" class="search-form-inline">
+            <input type="text" name="q" value="{{.Query}}" class="search-input-inline">
+            <button type="submit" class="search-btn-inline">Search</button>
+        </form>
+    </header>
+
+    <main class="results-main">
+        <div class="results-info">
+            {{.Results.TotalHits}} results in {{formatDuration .Results.TookMs}}
+        </div>
+
+        {{if .Results.Hits}}
+        <div class="results-list">
+            {{range $i, $hit := .Results.Hits}}
+            <div class="result">
+                <div class="result-rank">#{{add (add $i 1) (sub (mul $.Page $.Limit) $.Limit)}}</div>
+                <div class="result-content">
+                    <h3 class="result-title">{{title $hit.Doc}}</h3>
+                    <p class="result-snippet">{{snippet $hit.Doc}}</p>
+                    <div class="result-meta">
+                        Score: {{formatScore $hit.Score}} &middot; Doc ID: {{$hit.DocID}}
+                    </div>
+                </div>
+            </div>
+            {{end}}
+        </div>
+
+        <div class="pagination">
+            {{if .HasPrev}}
+            <a href="/?q={{.Query}}&page={{.PrevPage}}&limit={{.Limit}}" class="page-link">&laquo; Previous</a>
+            {{end}}
+            <span class="page-info">Page {{.Page}} of {{.TotalPages}}</span>
+            {{if .HasNext}}
+            <a href="/?q={{.Query}}&page={{.NextPage}}&limit={{.Limit}}" class="page-link">Next &raquo;</a>
+            {{end}}
+        </div>
+        {{else}}
+        <p class="no-results">No results found for "{{.Query}}"</p>
+        {{end}}
+    </main>
+</body>
+</html>

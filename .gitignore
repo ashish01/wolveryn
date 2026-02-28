@@ -1,0 +1,60 @@
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# =========================
+# Logs / env
+# =========================
+*.log
+.env
+.env.*
+!.env.example
+
+# =========================
+# Rust
+# =========================
+rust/target/
+**/*.rs.bk
+
+# =========================
+# Go
+# =========================
+go/bin/
+go/pkg/
+*.test
+coverage.out
+
+# =========================
+# Project build outputs
+# =========================
+bin/
+dist/
+release/
+
+# C/FFI artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# =========================
+# Temp / generated data
+# =========================
+*.tmp
+tmp/
+.temp/
+
+
+PLAN.md
+TASKS.md

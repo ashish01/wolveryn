@@ -1,0 +1,3 @@
+[env]
+SDKROOT = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
+DEVELOPER_DIR = "/Library/Developer/CommandLineTools"
