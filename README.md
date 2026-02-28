@@ -50,7 +50,7 @@ Wolveryn is a from-scratch single-node search engine with 20 components across R
 - **Iterator-based query evaluation** — `PostingIterator` trait with `next_doc()`, `advance()`, `shallow_advance()`. Boolean operators (AND/OR/NOT) compose iterators.
 - **Block-Max WAND** — State-of-the-art dynamic pruning skips 85-95% of postings without any result quality loss.
 - **Variable-byte compressed postings** — Delta-encoded doc IDs in 128-doc blocks, ~2-3 bytes per posting.
-- **Minimal dependencies** — Rust: only `serde_json` + `memmap2`. Go: stdlib only. Everything else hand-written.
+- **Minimal dependencies** — Rust: only `serde_json` + `memmap2`. Go: stdlib only.
 
 ## Quick Start
 
